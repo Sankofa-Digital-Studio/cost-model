@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Commercial & Mining Engineering Advisory
+    url: https://sankofadigital.co.za
+    about: Inquire about enterprise mining closure modeling and commercial software integration.
+  - name: Security Vulnerability Advisory
+    url: mailto:security@sankofadigital.co.za
+    about: Report sensitive data or confidential rate exposures securely.

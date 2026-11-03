@@ -1,0 +1,45 @@
+name: Model Verification & CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  verify-models:
+    name: Verify Formula & Workbook Integrity
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Test Universal Generator (Village Preset)
+        run: |
+          python build_universal_costing_model.py --preset village --output test_village.xlsx
+          python verify_universal_model.py test_village.xlsx
+
+      - name: Test Universal Generator (West Gold Preset)
+        run: |
+          python build_universal_costing_model.py --preset westgold --output test_westgold.xlsx
+          python verify_universal_model.py test_westgold.xlsx
+
+      - name: Audit Core CAPM Tau Mine #10 Model
+        run: |
+          python verify_capm_tau_model.py
+
+      - name: Audit Core West Gold Plant Model
+        run: |
+          python verify_model.py
