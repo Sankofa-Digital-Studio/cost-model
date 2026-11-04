@@ -2,8 +2,9 @@
 name: Feature Request
 about: Suggest a new model preset, engineering package, or calculation enhancement.
 title: "[FEAT]: "
-labels: ["enhancement"]
-assignees: ""
+labels: enhancement
+assignees: ''
+
 ---
 
 ### Feature Summary

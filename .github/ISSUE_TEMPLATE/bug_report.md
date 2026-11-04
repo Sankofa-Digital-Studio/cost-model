@@ -1,9 +1,11 @@
 ---
 name: Bug Report
-about: Create a report to help us fix formula errors, calculation issues, or script failures.
+about: Create a report to help us fix formula errors, calculation issues, or script
+  failures.
 title: "[BUG]: "
-labels: ["bug"]
-assignees: ""
+labels: bug, enhancement
+assignees: ''
+
 ---
 
 ### Bug Description
